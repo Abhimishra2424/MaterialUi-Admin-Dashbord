@@ -7,6 +7,7 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexFlow: "row wrap",
     justifyContent: "space-between",
+    backgroundColor:'#673ab7'
   },
   title: {
     color: "red",
@@ -21,5 +22,11 @@ export const useStyles = makeStyles((theme) => ({
   navAvatar:{
     width:"35px",
     height:"35px"
+  },
+  // side nav
+  drawerPaper:{
+    width:"250px",
+    marginTop:"65px"
+
   }
 }));

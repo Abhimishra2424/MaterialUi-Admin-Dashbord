@@ -19,7 +19,7 @@ export default function Navbar() {
     <AppBar position="static">
       <Toolbar className={classes.toolbar}>
         <Typography variant="h6" className={classes.title}>
-          {`Abhihsek admin`}
+          {`Abhi - admin`}
         </Typography>
         <Hidden smDown>
           <Box style={{ display: "flex" }}>
