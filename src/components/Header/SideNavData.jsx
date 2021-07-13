@@ -31,9 +31,10 @@ export default function SideNavData({ handleDrawerClose }) {
     <List>
       {listItemData.map((item, i) => (
         <Button
-          size="sm"
+          size="small"
           className={classes.navButton}
           onClick={() => handleDrawerClose()}
+          key={i}
         >
           <ListItem
             exact
@@ -41,7 +42,6 @@ export default function SideNavData({ handleDrawerClose }) {
             to={item.link}
             className={classes.navlinks}
             activeClassName={classes.activeNavlinks}
-            key={i}
           >
             <ListItemIcon>{item.icon}</ListItemIcon>
             <ListItemText>{item.label}</ListItemText>
