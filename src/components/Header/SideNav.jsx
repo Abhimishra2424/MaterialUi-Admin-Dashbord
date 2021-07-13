@@ -1,20 +1,19 @@
 import { Hidden, Drawer } from "@material-ui/core";
-import React, { useState } from "react";
+import React from "react";
 import { useStyles } from "./HeaderStyles";
-import SideNavData from './SideNavData'
+import SideNavData from "./SideNavData";
 
-export default function SideNav() {
+export default function SideNav({
+  mobileOpen,
+  handleDrawerOpen,
+  handleDrawerClose,
+}) {
   const classes = useStyles();
-  const [mobileOpen, setMobileOpen] = useState(false);
-
-  const handleDrawerOpen = () => {
-    setMobileOpen(!mobileOpen);
-  };
 
   return (
     <nav className={classes.drawer} aria-label="mailbox folders">
       {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-      <Hidden smUp implementation="css">
+      <Hidden mdUp implementation="css">
         <Drawer
           variant="temporary"
           anchor={"left"}
@@ -27,10 +26,10 @@ export default function SideNav() {
             keepMounted: true, // Better open performance on mobile.
           }}
         >
-         <SideNavData />
+          <SideNavData handleDrawerClose={handleDrawerClose} />
         </Drawer>
       </Hidden>
-      <Hidden xsDown implementation="css">
+      <Hidden smDown implementation="css">
         <Drawer
           classes={{
             paper: classes.drawerPaper,
@@ -38,7 +37,7 @@ export default function SideNav() {
           variant="permanent"
           open
         >
-         <SideNavData />
+          <SideNavData handleDrawerClose={handleDrawerClose} />
         </Drawer>
       </Hidden>
     </nav>

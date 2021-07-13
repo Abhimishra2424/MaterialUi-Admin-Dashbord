@@ -13,7 +13,7 @@ import Notification from "./Navtabs/notification";
 import Messages from "./Navtabs/messages";
 import MenuIcon from "@material-ui/icons/Menu";
 
-export default function Navbar() {
+export default function Navbar({ handleDrawerOpen }) {
   const classes = useStyles();
   return (
     <AppBar position="static">
@@ -29,7 +29,7 @@ export default function Navbar() {
           </Box>
         </Hidden>
         <Hidden mdUp>
-          <IconButton color="inherit" onClick={() => console.log("hello")}>
+          <IconButton color="inherit" onClick={handleDrawerOpen}>
             <MenuIcon />
           </IconButton>
         </Hidden>
