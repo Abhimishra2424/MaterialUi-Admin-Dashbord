@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Card, CardContent, Grid, Typography } from "@material-ui/core";
 import { GeneralGraphComponent } from "../../Common/GraphComponent";
 import { useEffect } from "react";
@@ -9,6 +9,7 @@ import { red } from "@material-ui/core/colors";
 
 export default function UserOverview() {
   const classes = useStyles();
+  const [fetched, setFetched] = useState(false);
 
   const GraphData = [
     {
@@ -52,15 +53,19 @@ export default function UserOverview() {
   ];
 
   useEffect(() => {
-    GraphData.map((item, i) =>
-      GeneralGraphComponent({
-        id: item.id,
-        type: item.type,
-        datasets: item.datasets,
-        xAxisLabels: item.xAxisLabels,
-      })
-    );
-  });
+    if (!fetched) {
+      GraphData.map((item, i) =>
+        GeneralGraphComponent({
+          id: item.id,
+          type: item.type,
+          datasets: item.datasets,
+          xAxisLabels: item.xAxisLabels,
+        })
+      );
+      setFetched(true);
+    }
+     // eslint-disable-next-line 
+  }, [fetched]);
 
   useEffect(() => {});
 

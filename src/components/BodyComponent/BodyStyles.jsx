@@ -5,6 +5,16 @@ export const useStyles = makeStyles((theme) => ({
   section: {
     margin: theme.spacing(3, 0),
   },
+
+  // circularProgress Box
+  boxCenter: {
+    minHeight: "250px",
+    display: "flex",
+    flexFlow: "row wrap",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
   // page
   pageTitle: {
     color: blueGrey["800"],
@@ -55,6 +65,6 @@ export const useStyles = makeStyles((theme) => ({
   displayUsergraph: {
     width: "100%",
     minHeight: "300px",
-    height: "auto",
+    height: "341px",
   },
 }));

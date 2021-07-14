@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Grid,
@@ -18,9 +18,15 @@ import {
   randomValueGenerator,
 } from "../../../utils/FakeArrayData";
 import UserOverview from "./UserOverview";
+import { GetPost, GetUser } from "../../../utils/blogRequest";
+import ListComponent from "./ListComponent";
 
 export default function Dashboard() {
   const classes = useStyles();
+  const [post, setPost] = useState([]);
+  const [author, setAuthor] = useState([]);
+  const [fetched, setFetched] = useState(false);
+
   const DisplayData = [
     {
       label: "posts",
@@ -76,17 +82,32 @@ export default function Dashboard() {
   ];
 
   useEffect(() => {
-    graphData.map((item, i) => (
-      <Fragment key={i}>
-        {DisplayCradGraph({
+    if (!fetched) {
+      graphData.map((item, i) =>
+        DisplayCradGraph({
           id: item.id,
           data: item.data,
           brColor: item.brColor,
           bgColor: item.bgColor,
-        })}
-      </Fragment>
-    ));
-  });
+        })
+      );
+      setFetched(true);
+    }
+    // eslint-disable-next-line
+  }, [fetched]);
+
+  // for api calling
+  useEffect(() => {
+    if (!fetched) {
+      GetPost({ limit: 5 }).then(({ data: { data } }) => {
+        setPost(data);
+      });
+      GetUser({ limit: 5 }).then(({ data: { data } }) => {
+        setAuthor(data)
+      });
+      setFetched(true);
+    }
+  }, [fetched]);
 
   return (
     <Box>
@@ -132,6 +153,9 @@ export default function Dashboard() {
         ))}
       </Grid>
       <UserOverview />
+
+      {/* list components */}
+      <ListComponent post={post} author={author} />
     </Box>
   );
 }
