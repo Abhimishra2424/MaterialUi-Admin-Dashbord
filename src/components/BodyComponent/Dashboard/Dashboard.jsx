@@ -110,7 +110,7 @@ export default function Dashboard() {
   }, [fetched]);
 
   return (
-    <Box>
+    <Box mt={10}>
       <PageHeader label="Dashborad" pageTitle="Blog overview" />
       <Grid container spacing={1}>
         {DisplayData.map((item, i) => (
@@ -151,9 +151,10 @@ export default function Dashboard() {
             </Card>
           </Grid>
         ))}
+     
       </Grid>
       <UserOverview />
-
+     
       {/* list components */}
       <ListComponent post={post} author={author} />
     </Box>

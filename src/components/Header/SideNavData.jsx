@@ -13,6 +13,7 @@ import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { NavLink } from "react-router-dom";
 import { useStyles } from "./HeaderStyles";
+import ContactMailIcon from '@material-ui/icons/ContactMail';
 
 export default function SideNavData({ handleDrawerClose }) {
   const classes = useStyles();
@@ -26,6 +27,7 @@ export default function SideNavData({ handleDrawerClose }) {
       icon: <NotificationsActiveIcon />,
     },
     { label: "Logout", link: "/logout", icon: <ExitToAppIcon /> },
+    { label: "Forms", link: "/form", icon: <ContactMailIcon /> },
   ];
   return (
     <List>

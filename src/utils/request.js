@@ -9,3 +9,4 @@ axios.interceptors.request.use((config) => {
 export const request = {
   get: axios.get,
 };
+

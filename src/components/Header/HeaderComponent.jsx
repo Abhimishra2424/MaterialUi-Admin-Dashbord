@@ -5,6 +5,7 @@ import SideNav from "./SideNav";
 import Dashboard from "../BodyComponent/Dashboard/Dashboard";
 import Blog from "../BodyComponent/Blog";
 import Link from "../BodyComponent/Link";
+import Form from "../BodyComponent/Form";
 import Notification from "../BodyComponent/Notification";
 import Logout from "../BodyComponent/Logout";
 import { Box } from "@material-ui/core";
@@ -37,6 +38,7 @@ export default function HeaderComponent() {
           <Route exact path="/link" render={() => <Link />} />
           <Route exact path="/notification" render={() => <Notification />} />
           <Route exact path="/logout" render={() => <Logout />} />
+          <Route exact path="/form" render={() => <Form />} />
         </Switch>
       </Box>
     </div>
