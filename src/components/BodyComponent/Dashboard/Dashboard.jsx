@@ -17,6 +17,7 @@ import {
   FakeArrayDataGenerator,
   randomValueGenerator,
 } from "../../../utils/FakeArrayData";
+import UserOverview from "./UserOverview";
 
 export default function Dashboard() {
   const classes = useStyles();
@@ -130,6 +131,7 @@ export default function Dashboard() {
           </Grid>
         ))}
       </Grid>
+      <UserOverview />
     </Box>
   );
 }

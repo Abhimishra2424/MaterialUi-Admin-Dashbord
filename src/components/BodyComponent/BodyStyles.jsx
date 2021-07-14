@@ -50,4 +50,11 @@ export const useStyles = makeStyles((theme) => ({
   cardContent: {
     position: "relative",
   },
+
+  // user trafic graph
+  displayUsergraph: {
+    width: "100%",
+    minHeight: "300px",
+    height: "auto",
+  },
 }));
